@@ -34,10 +34,28 @@ public class Main3Activity extends AppCompatActivity {
             @Override
             public void handleMessage(@NonNull Message msg) {
                 progressBar.setProgress(msg.what);
+
                 Log.d("TAG", String.valueOf(msg.what));
                 tw_progress.setText("Текущее значение: " + msg.what);
             }
         };
+
+
+        /* new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 100; i++) {
+                    try {
+                        Thread.sleep(100);
+                        handler.sendEmptyMessage(i);
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+
+                    }
+                }
+            }
+        }, 2000); */
 
 
         button_1.setOnClickListener(new View.OnClickListener() {
