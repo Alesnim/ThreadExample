@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
@@ -13,13 +15,11 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 public class Main3Activity extends AppCompatActivity {
     ProgressBar progressBar;
-    Button button_1;
+    Button button_1, button_2;
     TextView tw_progress;
-    int progr=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +27,11 @@ public class Main3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
 
         progressBar = findViewById(R.id.progres_1);
-        button_1 = findViewById(R.id.button_1);
+        button_1 = findViewById(R.id.bt_one);
         tw_progress = findViewById(R.id.tw_progress);
+        button_2 = findViewById(R.id.bt_two);
 
-        @SuppressLint("HandlerLeak") Handler handler = new Handler(){
+        @SuppressLint("HandlerLeak") Handler handler = new Handler(Looper.getMainLooper()) {
             @Override
             public void handleMessage(@NonNull Message msg) {
                 progressBar.setProgress(msg.what);
@@ -40,10 +41,8 @@ public class Main3Activity extends AppCompatActivity {
             }
         };
 
-
-        /* new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        button_1.setOnClickListener(v -> {
+            Thread myThread = new Thread(() -> {
                 for (int i = 0; i < 100; i++) {
                     try {
                         Thread.sleep(100);
@@ -54,41 +53,22 @@ public class Main3Activity extends AppCompatActivity {
 
                     }
                 }
-            }
-        }, 2000); */
+                new Handler(Looper.getMainLooper()).post(this::showRes);
+            });
+            myThread.start();
 
 
-        button_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Thread myThread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        for (int i = 0; i < 100; i++) {
-                            try {
-                                Thread.sleep(100);
-                                handler.sendEmptyMessage(i);
+        });
 
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-
-                            }
-                        }
-                    }
-                });
-                myThread.start();
-
-
-            }
+        button_2.setOnClickListener(view -> {
+            startActivity(new Intent(this, ExecutorExample.class));
         });
 
 
+    }
 
 
- }
-
-
-    private void showRes(){
-        Toast.makeText(getApplicationContext(), "Дело сделано! ", Toast.LENGTH_SHORT);
+    private void showRes() {
+        Toast.makeText(getApplicationContext(), "Дело сделано! ", Toast.LENGTH_SHORT).show();
     }
 }

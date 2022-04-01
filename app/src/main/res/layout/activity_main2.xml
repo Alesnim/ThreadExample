@@ -11,38 +11,34 @@
         android:id="@+id/tw_indicator"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="108dp"
         android:text="something"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <Button
-        android:id="@+id/button_1"
+        android:id="@+id/bt_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
         android:layout_marginTop="52dp"
         android:text="Runnable"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tw_indicator" />
 
     <Button
-        android:id="@+id/button_2"
+        android:id="@+id/bt_two"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
         android:layout_marginTop="52dp"
         android:text="Далее"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_1" />
+        app:layout_constraintTop_toBottomOf="@id/bt_one" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

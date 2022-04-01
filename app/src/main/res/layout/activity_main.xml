@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_1"
+        android:id="@+id/bt_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -40,11 +40,11 @@
         android:text="Начинаем?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_1" />
+        app:layout_constraintTop_toBottomOf="@id/bt_one" />
 
 
     <Button
-        android:id="@+id/button_2"
+        android:id="@+id/bt_two"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"

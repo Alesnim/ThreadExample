@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         progressBar1 = findViewById(R.id.progres_1);
-        button_1 = findViewById(R.id.button_1);
-        button_2 = findViewById(R.id.button_2);
+        button_1 = findViewById(R.id.bt_one);
+        button_2 = findViewById(R.id.bt_two);
         tw_indicator = findViewById(R.id.tw_indicator);
 
         button_1.setOnClickListener(new View.OnClickListener() {
