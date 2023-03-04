@@ -26,8 +26,6 @@ public class ExecutorExample extends AppCompatActivity {
         img = findViewById(R.id.iv_img);
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-
-
         bt.setOnClickListener(view -> executorService.execute(() -> {
             float alph = 0f;
             try {

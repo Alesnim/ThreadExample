@@ -1,8 +1,5 @@
 package com.itschool.threefour.threadexample;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +7,13 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Main3Activity extends AppCompatActivity {
     ProgressBar progressBar;
@@ -35,7 +34,6 @@ public class Main3Activity extends AppCompatActivity {
             @Override
             public void handleMessage(@NonNull Message msg) {
                 progressBar.setProgress(msg.what);
-
                 Log.d("TAG", String.valueOf(msg.what));
                 tw_progress.setText("Текущее значение: " + msg.what);
             }
@@ -47,7 +45,6 @@ public class Main3Activity extends AppCompatActivity {
                     try {
                         Thread.sleep(100);
                         handler.sendEmptyMessage(i);
-
                     } catch (InterruptedException e) {
                         e.printStackTrace();
 
@@ -58,11 +55,10 @@ public class Main3Activity extends AppCompatActivity {
             myThread.start();
 
 
+
         });
 
-        button_2.setOnClickListener(view -> {
-            startActivity(new Intent(this, ExecutorExample.class));
-        });
+        button_2.setOnClickListener(view -> startActivity(new Intent(this, ExecutorExample.class)));
 
 
     }

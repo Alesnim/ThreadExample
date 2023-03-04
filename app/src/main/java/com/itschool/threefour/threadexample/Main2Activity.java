@@ -2,6 +2,7 @@ package com.itschool.threefour.threadexample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -28,7 +29,7 @@ public class Main2Activity extends AppCompatActivity {
 //            th.start();
             // incorrect
 //            runOnUiThread(new MyRunnable());
-            Runnable r = () -> {
+            @SuppressLint("SetTextI18n") Runnable r = () -> {
                 for (int i = 0; i < 100; i++) {
                     int temp = i;
                     try {

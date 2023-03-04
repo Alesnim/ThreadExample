@@ -25,13 +25,9 @@ public class MainActivity extends AppCompatActivity {
         button_1 = findViewById(R.id.bt_one);
         button_2 = findViewById(R.id.bt_two);
         tw_indicator = findViewById(R.id.tw_indicator);
-
-        button_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               ProgressThread thread =  new ProgressThread();
-               thread.execute();
-            }
+        ProgressThread thread =  new ProgressThread();
+        button_1.setOnClickListener(v -> {
+           thread.execute();
         });
         button_2.setOnClickListener((x) -> {
             Intent intent = new Intent(this, Main2Activity.class);
